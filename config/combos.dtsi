@@ -16,6 +16,7 @@
 
 // make homerow combos tap-only (so HRMs can be chorded instantaneously)
 #define HRC_TAB    &hml         LA(LCTRL) TAB
+#define HRC_RETURN &hml         LS(LCTRL) RETURN
 #define HRC_REPEAT &hml_repeat  LS(LCTRL) 0
 #define HRC_SELALL &hml         LA(LGUI)  LC(A)
 #define HRC_BSPC   &hmr         RS(LCTRL) BSPC
@@ -29,7 +30,7 @@ ZMK_COMBO(repeat,HRC_REPEAT,    LT2 LT1,     DEF NAV NUM, COMBO_TERM_FAST)
 ZMK_COMBO(mouse, &smart_mouse,  LT3 LT1,     DEF NAV NUM, COMBO_TERM_SLOW)
 
 ZMK_COMBO(tab,   HRC_TAB,       LM3 LM2,     DEF NAV NUM, COMBO_TERM_FAST)
-ZMK_COMBO(ret,   &kp RETURN,    LM2 LM1,     DEF NAV NUM, COMBO_TERM_FAST)
+ZMK_COMBO(ret,   HRC_RETURN,    LM2 LM1,     DEF NAV NUM, COMBO_TERM_FAST)
 ZMK_COMBO(selall,HRC_SELALL,    LM4 LM3,     DEF NAV NUM, COMBO_TERM_FAST)
 
 ZMK_COMBO(cut,   &kp LC(X),     LB3 LB1,     DEF NAV NUM, COMBO_TERM_SLOW)
