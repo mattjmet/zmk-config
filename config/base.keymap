@@ -155,6 +155,14 @@ ZMK_BEHAVIOR(uc_shift, macro,
              , <&macro_release &mo UC &kp LSHFT>;
 )
 
+// tap: apostrophe | shift + tap: double quote | hold: activate layer
+ZMK_BEHAVIOR(lt_quot, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&mo>, <&quot_morph>;
+)
+
 // tap: apostrophe | shift + tap: double quote
 ZMK_BEHAVIOR(quot_morph, mod_morph,
     mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -254,7 +262,7 @@ ZMK_LAYER(base,
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
     X_LB     &kp Q         &kp J         &kp V         &kp D         &kp K           X_MB     &kp X         &kp H         &comma_morph  &dot_morph    &qexcl          X_RB
 //├──────┤ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯ ├──────┤
-    X_LH                                               &smart_shft   &lt FN RET      X_MH     SMART_NUM     &lt_spc NAV 0                                               X_RH
+    X_LH                                               &smart_shft   &lt_quot FN 0      X_MH     SMART_NUM     &lt_spc NAV 0                                               X_RH
 //╰──────╯                                           ╰─────────────┴─────────────╯ ╰──────╯ ╰─────────────┴─────────────╯                                           ╰──────╯
 )
 
