@@ -7,8 +7,8 @@
     #define _BT_SEL_KEYS_ &trans &trans &trans &trans &trans
 #endif
 
-#define _NUM_HOME_LEFT_KEYS_ &hml LGUI N8  &hml LALT N6 &hml LCTRL N2 &hml LSHFT N4
-#define _NUM_HOME_RIGHT_KEYS_ &hml LSHFT N3 &hml LCTRL N1 &hml LALT N5 &hml LGUI N7
+#define _NUM_HOME_LEFT_KEYS_ &hml LGUI N4 &hml LALT N3 &hml LCTRL N2 &hml LSHFT N1
+#define _NUM_HOME_RIGHT_KEYS_ &hml LSHFT N5 &hml LCTRL N6 &hml LALT N7 &hml LGUI N8
 
 #include "../zmk-nodefree-config/helper.h"
 #include "../zmk-nodefree-config/international_chars/greek.dtsi"
