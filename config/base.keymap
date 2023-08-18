@@ -168,7 +168,7 @@ ZMK_BEHAVIOR(lt_quot, hold_tap,
 // tap: apostrophe | shift + tap: double quote
 ZMK_BEHAVIOR(quot_morph, mod_morph,
     mods = <(MOD_LSFT|MOD_RSFT)>;
-    bindings = <&kp SQT>, <&kp DQT>;
+    bindings = <&kp SQT>, <&kp AT>;
 )
 
 // tap: comma | shift + tap: semicolon | ctrl + shift + tap: <
