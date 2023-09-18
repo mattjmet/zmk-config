@@ -21,6 +21,7 @@
 #define HRC_SELALL &hml         LA(LGUI)  LC(A)
 #define HRC_BSPC   &hmr         RS(LCTRL) BSPC
 #define HRC_DEL    &hmr         LA(LCTRL) DEL
+#define HRC_DELW   &hmr         LA(RS)    LC(BSPC)
 #define HRC_LPAR   &hmr_lpar_lt RS(LCTRL) 0
 #define HRC_RPAR   &hmr_rpar_gt LA(LCTRL) 0
 
@@ -43,6 +44,7 @@ ZMK_COMBO(rpar,  HRC_RPAR,      RT2 RT3,     DEF     NUM, COMBO_TERM_FAST)
 
 ZMK_COMBO(bspc,  HRC_BSPC,      RM1 RM2,     DEF NAV NUM, COMBO_TERM_FAST)
 ZMK_COMBO(del,   HRC_DEL,       RM2 RM3,     DEF NAV NUM, COMBO_TERM_FAST)
+ZMK_COMBO(delw,  HRC_DELW,      RM1 RM3,     DEF NAV NUM, COMBO_TERM_FAST)
 ZMK_COMBO(lt,    &kp LT,        RM1 RM2,         NAV    , COMBO_TERM_FAST)
 ZMK_COMBO(gt,    &kp GT,        RM2 RM3,         NAV    , COMBO_TERM_FAST)
 
