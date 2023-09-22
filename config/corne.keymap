@@ -2,11 +2,11 @@
 #include "../zmk-nodefree-config/keypos_def/keypos_42keys.h"
 
 /* map Corne's extra keys */
-#define X_LT  &kp DOT  // top row, left
+#define X_LT  &to COLE  // top row, left
 #define X_LM  &kp DOT  // middle row, left
 #define X_LB  &kp DOT  // bottom row, left
 #define X_LH  &smart_mouse  // thumb row, left
-#define X_RT  &kp DOT  // top row, right
+#define X_RT  &to DEF  // top row, right
 #define X_RM  &kp DOT  // middle row, right
 #define X_RB  &kp DOT  // bottom row, right
 #define X_RH  &bs_del  // thumb row, right
