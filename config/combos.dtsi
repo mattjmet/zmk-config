@@ -21,7 +21,7 @@
 #define HRC_SELALL &hml         LA(LGUI)  LC(A)
 #define HRC_BSPC   &hmr         RS(LCTRL) BSPC
 #define HRC_DEL    &hmr         LA(LCTRL) DEL
-#define HRC_DELW   &hmr         LA(RS)    LC(BSPC)
+#define HRC_DELW   &hmr         RS(LALT)  LC(BSPC)
 #define HRC_LPAR   &hmr_lpar_lt RS(LCTRL) 0
 #define HRC_RPAR   &hmr_rpar_gt LA(LCTRL) 0
 
