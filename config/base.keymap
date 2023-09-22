@@ -7,8 +7,9 @@
     #define _BT_SEL_KEYS_ &trans &trans &trans &trans &trans
 #endif
 
-#define _NUM_HOME_LEFT_KEYS_ &hml LGUI N4 &hml LALT N3 &hml LCTRL N2 &hml LSHFT N1
-#define _NUM_HOME_RIGHT_KEYS_ &hml LSHFT N5 &hml LCTRL N6 &hml LALT N7 &hml LGUI N8
+#define _NUM_TOP_RIGHT_KEYS_     ___        &kp N7        &kp N8        &kp N9       ___  
+#define _NUM_HOME_RIGHT_KEYS_    &dot_morph &hmr RSHFT N4 &hmr LCTRL N5 &hmr LALT N6 &hmr LGUI N0
+#define _NUM_BOTTOM_RIGHT_KEYS_  ___        &kp N1        &kp N2        &kp N3       ___
 
 #include "../zmk-nodefree-config/helper.h"
 #include "../zmk-nodefree-config/international_chars/greek.dtsi"
@@ -282,12 +283,12 @@ ZMK_LAYER(base,
 )
 
 ZMK_LAYER(num,
-//╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬───────────── ╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮
-    X_LT     ___           &kp N7        &kp N8        &kp N9        ___             X_MT     ___           ___           ___           ___           ___             X_RT
+//╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────  ╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮
+    X_LT     ___           ___           ___           ___           ___             X_MT                             _NUM_TOP_RIGHT_KEYS_                            X_RT
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    X_LM                   _NUM_HOME_LEFT_KEYS_                      ___             X_MM     ___                         _NUM_HOME_RIGHT_KEYS_                       X_RM
+    X_LM     ___           ___           ___           ___           ___             X_MM                             _NUM_HOME_RIGHT_KEYS_                           X_RM
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    X_LB     ___           ___           ___           &kp N0        ___             X_MB     ___           &kp N9        ___           ___           ___             X_RB
+    X_LB     ___           ___           ___           ___           ___             X_MB                            _NUM_BOTTOM_RIGHT_KEYS_                          X_RB
 //├──────┤ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯ ├──────┤
     X_LH                                               ___           ___             X_MH     ___           ___                                                       X_RH
 //╰──────╯                                           ╰─────────────┴─────────────╯ ╰──────╯ ╰─────────────┴─────────────╯                                           ╰──────╯
