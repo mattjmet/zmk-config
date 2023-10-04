@@ -1,4 +1,9 @@
-on: [pull_request, workflow_dispatch]
+on: 
+  pull_request:
+  workflow_dispatch:
+  push:
+    tags:
+    - 'v*'
 
 jobs:
   build:
