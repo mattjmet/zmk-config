@@ -176,11 +176,7 @@ ZMK_BEHAVIOR(quot_morph, mod_morph,
 // tap: comma | shift + tap: semicolon | ctrl + shift + tap: <
 ZMK_BEHAVIOR(comma_morph, mod_morph,
     mods = <(MOD_LSFT|MOD_RSFT)>;
-    bindings = <&kp COMMA>, <&comma_inner_morph>;
-)
-ZMK_BEHAVIOR(comma_inner_morph, mod_morph,
-    bindings = <&kp SEMICOLON>, <&kp LESS_THAN>;
-    mods = <(MOD_LCTL|MOD_RCTL)>;
+    bindings = <&kp COMMA>, <&kp SEMICOLON>;
 )
 
 // tap: dot | shift + tap: colon | ctrl + shift + tap: >
