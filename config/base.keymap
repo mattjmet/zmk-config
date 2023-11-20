@@ -181,12 +181,8 @@ ZMK_BEHAVIOR(comma_morph, mod_morph,
 
 // tap: dot | shift + tap: colon | ctrl + shift + tap: >
 ZMK_BEHAVIOR(dot_morph, mod_morph,
-    bindings = <&kp DOT>, <&dot_inner_morph>;
+    bindings = <&kp DOT>, <&kp COLON>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(dot_inner_morph, mod_morph,
-    bindings = <&kp COLON>, <&kp GREATER_THAN>;
-    mods = <(MOD_LCTL|MOD_RCTL)>;
 )
 
 // tap: qmark | shift + tap: excl
