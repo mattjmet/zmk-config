@@ -12,16 +12,25 @@
   #define _BT_SEL_KEYS_ &trans &trans &trans &trans &trans
 #endif
 
-#define _NUM_TOP_RIGHT_KEYS_     ___        &kp N7        &kp N8        &kp N9       ___  
-#define _NUM_HOME_RIGHT_KEYS_    &dot_morph &hmr RSHFT N4 &hmr LCTRL N5 &hmr LALT N6 &hmr LGUI N0
-#define _NUM_BOTTOM_RIGHT_KEYS_  ___        &kp N1        &kp N2        &kp N3       ___
+#define _NUM_TOP_RIGHT_KEYS_     ___         &kp N7        &kp N8        &kp N9       ___  
+#define _NUM_HOME_RIGHT_KEYS_    &dot_morph  &hmr RSHFT N4 &hmr LCTRL N5 &hmr LALT N6 &hmr LGUI N0
+#define _NUM_BOTTOM_RIGHT_KEYS_  ___         &kp N1        &kp N2        &kp N3       ___
+
+// #define _WIN_SWITCH_KEYS_TOP_    ___         &kp LG(N7)    &kp LG(N8)    &kp LG(N9)   ___
+// #define _WIN_SWITCH_KEYS_MID_    &kp LS(TAB) &kp LG(N4)    &kp LG(N5)    &kp LG(N6)   &kp LG(N0)
+// #define _WIN_SWITCH_KEYS_BOT_    &swapper    &kp LG(N1)    &kp LG(N2)    &kp LG(N3)   ___
+
+#define _WIN_SWITCH_KEYS_TOP_    ___         &app7    &app8    &app9   ___
+#define _WIN_SWITCH_KEYS_MID_    &kp LS(TAB) &app4    &app5    &app6   &app0
+#define _WIN_SWITCH_KEYS_BOT_    &swapper    &app1    &app2    &app3   ___
 
 #define DEF 0
 #define NUM 1
 #define NAV 2
 #define FN 3
-#define SYS 4
-#define MOUSE 5
+#define APP 4
+#define SYS 5
+#define MOUSE 6
 
 #define XXX &none
 #define ___ &trans
@@ -125,6 +134,33 @@ ZMK_ADAPTIVE_KEY(
   /delete-property/ ignore-modifiers;
 };
 
+// Tap: sticky app-layer | double-tap: previous app | Hold: app-layer.
+#define SMART_APP &smart_app APP 0
+ZMK_HOLD_TAP(smart_app, bindings = <&mo>, <&app_dance>; flavor = "balanced";
+             tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
+ZMK_TAP_DANCE(app_dance, bindings = <&sl APP>, <&kp LA(TAB)>;
+              tapping-term-ms = <200>;)
+
+// Win+Num app swapper, requires tri-state module.
+#define APP_SWAPPER(NAME, BINDING)                                                   \
+  ZMK_TRI_STATE(NAME, bindings = <&kt LGUI>, <BINDING>, <&kt LGUI>;                  \
+              ignored-key-positions = <LT1 LT2 LT3 LM1 LM2 LM3 LM4 LB1 LB2 LB3>;)
+
+APP_SWAPPER(app1, &kp N1)
+APP_SWAPPER(app2, &kp N2)
+APP_SWAPPER(app3, &kp N3)
+APP_SWAPPER(app4, &kp N4)
+APP_SWAPPER(app5, &kp N5)
+APP_SWAPPER(app6, &kp N6)
+APP_SWAPPER(app7, &kp N7)
+APP_SWAPPER(app8, &kp N8)
+APP_SWAPPER(app9, &kp N9)
+APP_SWAPPER(app0, &kp N0)
+
+// Tap: backspace | Lshft + tap: delete | Rshft + tap: shift-delete.
+// ZMK_MOD_MORPH(bs_del, bindings = <&kp BSPC>, <&kp DEL>;
+//               mods = <(MOD_LSFT|MOD_RSFT)>; keep-mods = <MOD_RSFT>;)
+
 // Tap: num-word | double-tap: sticky num-layer | Hold: num-layer.
 #define SMART_NUM &smart_num NUM 0
 ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced";
@@ -143,7 +179,7 @@ ZMK_TRI_STATE(
 
 // Alt+Tab swapper, requires tri-state module.
 ZMK_TRI_STATE(swapper, bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
-              ignored-key-positions = <LM0 LB0>;)
+              ignored-key-positions = <LM0 LB0 RM0 RB0>;)
 
 // Define mod-morph with a *single* mod trigger for less repetition.
 #define SIMPLE_MORPH(NAME, MOD, BINDING1, BINDING2)                            \
@@ -185,10 +221,6 @@ ZMK_HOLD_TAP(qu, bindings = <&kp>, <&qu_macro>; flavor = "tap-preferred";
              tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
 ZMK_MACRO(qu_macro, bindings = <&kp Q &kp U>; wait-ms = <0>;
           tap-ms = <5>;)
-
-// Tap: backspace | Lshft + tap: delete | Rshft + tap: shift-delete.
-ZMK_MOD_MORPH(bs_del, bindings = <&kp BSPC>, <&kp DEL>;
-              mods = <(MOD_LSFT|MOD_RSFT)>; keep-mods = <MOD_RSFT>;)
 
 // Tap: copy | double-tap: cut.
 ZMK_TAP_DANCE(copy_cut, bindings = <&kp LC(INS)>, <&kp LC(X)>;
@@ -266,6 +298,18 @@ ZMK_BASE_LAYER(Fn,
     &kp F10       &kp F1        &kp F2        &kp F3        &kp LS(TAB) ,   PIN_APP       PIN_WIN       DSK_MGR       ___           ___         ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                               ___           ___         ,   &kp C_MUTE    &kp C_PP
+//                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
+)
+
+ZMK_BASE_LAYER(App,
+//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    ___           ___           ___           ___           ___         ,                          _WIN_SWITCH_KEYS_TOP_                        ,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    ___           ___           ___           ___           ___         ,                          _WIN_SWITCH_KEYS_MID_                        ,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    ___           ___           ___           ___           ___         ,                          _WIN_SWITCH_KEYS_BOT_                        ,
+//╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
+                                              ___           ___         ,   ___           ___
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
 
