@@ -8,6 +8,8 @@
     &smart_mouse LH RH &bs_del                                                 \
     )
 
+// TODO: make bs_del a layer on hold
+// add window switchers e.g. <win>+<num> and alt-tab
 #include "zmk-helpers/key-labels/36.h"
 #include "base.keymap"
 
