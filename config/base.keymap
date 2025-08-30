@@ -277,6 +277,7 @@ ZMK_BASE_LAYER(Num,
 )
 
 // TODO: use more of Nav LHS
+// add ctrl+tab tri-state swapper
 ZMK_BASE_LAYER(Nav,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &kp LA(F4)    &kp LC(F4)    ___           ___           ___         ,   &kp PG_UP     &kp LA(LEFT)  NAV_UP        &kp LA(RIGHT) &kp ESC     ,
