@@ -16,13 +16,9 @@
 #define _NUM_HOME_RIGHT_KEYS_    &dot_morph  &hmr RSHFT N4 &hmr LCTRL N5 &hmr LALT N6 &hmr LGUI N0
 #define _NUM_BOTTOM_RIGHT_KEYS_  ___         &kp N1        &kp N2        &kp N3       ___
 
-// #define _WIN_SWITCH_KEYS_TOP_    ___         &kp LG(N7)    &kp LG(N8)    &kp LG(N9)   ___
-// #define _WIN_SWITCH_KEYS_MID_    &kp LS(TAB) &kp LG(N4)    &kp LG(N5)    &kp LG(N6)   &kp LG(N0)
-// #define _WIN_SWITCH_KEYS_BOT_    &swapper    &kp LG(N1)    &kp LG(N2)    &kp LG(N3)   ___
-
-#define _WIN_SWITCH_KEYS_TOP_    ___         &app7    &app8    &app9   ___
-#define _WIN_SWITCH_KEYS_MID_    &kp LS(TAB) &app4    &app5    &app6   &app0
-#define _WIN_SWITCH_KEYS_BOT_    &swapper    &app1    &app2    &app3   &kp LC(LA(DEL))
+#define _WIN_SWITCH_KEYS_TOP_    &app7    &app8    &app9
+#define _WIN_SWITCH_KEYS_MID_    &app4    &app5    &app6   &app0
+#define _WIN_SWITCH_KEYS_BOT_    &app1    &app2    &app3
 
 #define DEF 0
 #define NUM 1
@@ -303,11 +299,11 @@ ZMK_BASE_LAYER(Fn,
 
 ZMK_BASE_LAYER(App,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    ___           ___           ___           ___           ___         ,                          _WIN_SWITCH_KEYS_TOP_                        ,
+    ___           ___           ___           ___           ___         ,   ___                    _WIN_SWITCH_KEYS_TOP_            ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    ___           ___           ___           ___           ___         ,                          _WIN_SWITCH_KEYS_MID_                        ,
+    ___           ___           ___           ___           ___         ,   &kp LS(TAB)            _WIN_SWITCH_KEYS_MID_                        ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    ___           ___           ___           ___           ___         ,                          _WIN_SWITCH_KEYS_BOT_                        ,
+    ___           ___           ___           ___           ___         ,   &swapper               _WIN_SWITCH_KEYS_BOT_         &kp LC(LA(DEL)),
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                               ___           ___         ,   ___           ___
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
