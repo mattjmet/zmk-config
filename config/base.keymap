@@ -22,7 +22,7 @@
 
 #define _WIN_SWITCH_KEYS_TOP_    ___         &app7    &app8    &app9   ___
 #define _WIN_SWITCH_KEYS_MID_    &kp LS(TAB) &app4    &app5    &app6   &app0
-#define _WIN_SWITCH_KEYS_BOT_    &swapper    &app1    &app2    &app3   ___
+#define _WIN_SWITCH_KEYS_BOT_    &swapper    &app1    &app2    &app3   &kp LC(LA(DEL))
 
 #define DEF 0
 #define NUM 1
